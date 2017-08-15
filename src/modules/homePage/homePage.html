@@ -1,0 +1,41 @@
+<div class="homePage" ms-important="homePage">
+    <div class="welcome">
+        <img class="user-pic" src="../images/user.jpg">
+        <p class="welcome-text">
+            <span class="font-blod">  {{userName}}，你好！</span><br/> 您可以点击上面分类查看数据分析。
+        </p>
+    </div>
+    <div class="dynamic" ms-visible="dynamicList.length!==0">
+        <p class="dynamic-title font-blod">消息与更新</p>
+        <ul class="dynamic-list">
+            <li ms-repeat="dynamicList">
+                <img ms-if="el.mess_type==1" src="../images/system.png" />
+                <img ms-if="el.mess_type==2" src="../images/tips.png" />
+                <p class="dynamic-content">
+                    <span>{{el.mess_title}}</span>
+                    <span class="small-font">{{el.time}}</span><br/>
+                    <span>{{el.msg}}</span>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div aria-label="Page navigation" ms-visible="dynamicList.length>10">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

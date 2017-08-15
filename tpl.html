@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{%=o.htmlWebpackPlugin.options.title%}</title>
+    {% if (o.htmlWebpackPlugin.files.favicon) { %}
+    <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}"> {% } %} {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet"> {% } %}
+</head>
+
+<body>
+    <div ms-controller="root" class="wrap" ms-on-click="bodyClick">
+        <div class="header" ms-visible="menuShow">
+            <div class="head-menu">
+                <a href="#!/homePage"><img src="./images/logo.png" class="logo fl" /></a>
+                <ul class="menuList">
+                    <li ms-repeat-el="menuList">
+                        <a ms-href="el.href " ms-on-click="menuClick($index,$event)"> {{el.name}}</a>
+                        <ul class="dropDown">
+                            <li ms-repeat-item=" el.children " ms-on-click="menuChildrenClick($event)">
+                                <a ms-href="item.href ">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="operate-menu fr ">
+                    <ul>
+                        <li class="userinfo ">{{userName}}</li>
+                        <li>
+                            <a href="#!/setting " title="设置 " class="setting "></a>
+                        </li>
+                        <li class="login_li ">
+                            <a title="退出 " class="loginout " ms-on-click="loginout "></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="loading_container " ms-visible="showLoading ">
+            <img src="./images/loading.gif " width="300 " height="200 " />
+        </div>
+        <div class="modal fade" id="collectSuccess" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="width:440px;height:303px;text-align:center;">
+                    <div class="modal-header" style="border:0;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./images/success.png" alt="">
+                        <p style="font-size:18px;padding-top:30px;">收藏成功!</p>
+                        <p style="padding:15px 0 20px">您可在您的账户设置下查看下载历史。</p>
+                        <div>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" style="width:100px;">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="message_container" ms-visible="message">
+            <p>{{message}}</p>
+        </div>
+        <div class="page_container ">
+
+            <div ms-view="" class="page "></div>
+        </div>
+    </div>
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %} "></script>
+    {% } %}
+</body>
+
+</html>

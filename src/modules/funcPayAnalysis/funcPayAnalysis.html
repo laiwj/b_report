@@ -1,0 +1,174 @@
+<div class="chartsContainer" ms-important="funcPayAnalysis">
+    <div class="chartsTitle">
+        <span>职能薪酬分析</span>
+        <a class="collection" ms-on-click="reportCollect"><img src="../images/collect.png" />收藏</a>
+    </div>
+    <div class="chart-wrap payAnalysis">
+        <div class="reportCycle">
+            <form class="report-form">
+                <div class="form-group">
+                    <label>职能设置</label>
+                    <div class="dropdown">
+                        <a ms-on-click="addStation($event)" id="result" role="button" data-toggle="dropdown" class="btn btn-default" data-target="#">
+                            <span>职能：</span>{{configItem.name}} <span class="caret"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>分析数据筛选</label>
+                    <div class="dropdown">
+                        <a id="industry" role="button" data-toggle="dropdown" class="btn btn-default" data-target="#">
+                            <span>行业：</span>{{configItem.industry}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-multi " role="menu" aria-labelledby="dropdownMenu" ms-on-click="multiSelect($event,'industry')">
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">互联网全行业</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">互联网金融</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">游戏</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">电商</a>
+                            </li>
+                            <li style="text-align:right; padding-right:10px;">
+                                <button type="button" class="btn btn-default" ms-on-click="sureSelect('industry')">确定</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="dropdown">
+                        <a id="city" role="button" data-toggle="dropdown" class="btn btn-default" data-target="#">
+                            <span>地区：</span>{{configItem.city}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-multi" role="menu" aria-labelledby="dropdownMenu" ms-on-click="multiSelect($event,'city')">
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">北京</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">上海</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">广州</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">深圳</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">成都</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">杭州</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">武汉</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">天津</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">南京</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">重庆</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">西安</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">长沙</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">青岛</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">沈阳</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">大连</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">厦门</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">苏州</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">宁波</a>
+                            </li>
+                            <li>
+                                <a class="checkbox" href="#" tabindex="-1">无锡</a>
+                            </li>
+                            <li style="text-align:right; padding-right:10px;">
+                                <button type="button" class="btn btn-default" ms-on-click="sureSelect('city')">确定</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="dropdown">
+                        <a id="experience" role="button" data-toggle="dropdown" class="btn btn-default" data-target="#">
+                            <span>经验：</span>{{configItem.experience}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu" ms-on-click="selectClick($event,'experience')">
+                            <li>
+                                <a href="#" tabindex="-1">0-3年</a>
+                            </li>
+                            <li>
+                                <a href="#" tabindex="-1">3-5年</a>
+                            </li>
+                            <li>
+                                <a href="#" tabindex="-1">5-8年</a>
+                            </li>
+                            <li>
+                                <a href="#" tabindex="-1">8-12年</a>
+                            </li>
+                            <li>
+                                <a href="#" tabindex="-1">12年以上</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>分析周期</label>
+                    <div class="dropdown">
+                        <a id="t" role="button" data-toggle="dropdown" class="btn btn-default" data-target="#">
+                            <span>周期：</span>{{configItem.type}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" ms-on-click="selectClick($event,'type')">
+                            <li>
+                                <a href="#" tabindex="-1">近一个月</a>
+                            </li>
+                            <li>
+                                <a href="#" tabindex="-1">近三个月</a>
+                            </li>
+                            <li>
+                                <a href="#" tabindex="-1">近一年</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="report-data">
+            <p class="analysis-text" ms-visible="noData">
+                分析数据：{{dataTime.total_data}}>{{dataTime.accord_data}}<br/>
+                <span>当前分析结果基于{{dataTime.end_time}}的数据</span>
+            </p>
+        </div>
+        <div id="charts-wraps">
+            <p class="nullPic">暂无数据！</p>
+        </div>
+
+    </div>
+    <div class="charts-foot">
+        <p class="tip-content">
+        </p>
+        <!-- <p class="text-content" ms-visible="reportCommit">{{reportCommit}}</p> -->
+    </div>
+    <div id="positionDiv"></div>
+</div>

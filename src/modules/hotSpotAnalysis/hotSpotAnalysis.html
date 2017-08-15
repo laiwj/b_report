@@ -1,0 +1,69 @@
+<div class="chartsContainer" ms-important="hotSpotAnalysis">
+    <div class="chartsTitle">
+        <div class="btn-group ">
+            <a class="dropdown-origin  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ms-disabled="config.industry.length==0">
+                     {{formData.industry}}<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ms-repeat="config.industry"><a href="#" ms-on-click="selectClick($event,'industry',$index)">{{el}}</a></li>
+            </ul>
+        </div>
+
+        <!--<span>行业经验</span>
+        <div class="btn-group ">
+            <a class="dropdown-origin  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ms-disabled="config.experience.length==0">
+                     {{formData.experience}}<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ms-repeat="config.experience"><a href="#" ms-on-click="selectClick($event,'experience',$index)">{{el}}</a></li>
+            </ul>
+        </div>-->
+        <span>的热门岗位人群薪酬及特征画像</span>
+        <a class="collection" ms-on-click="collection"><img src="../images/collect.png" />收藏</a>
+    </div>
+    <div class="chart-wrap">
+        <div class="charts-title">
+            <div class="left">
+                <span>报告周期：</span>
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{formData.type}}<span class="caret"></span>
+            </button>
+                    <ul class="dropdown-menu">
+                        <li ms-repeat="config.type"><a href="#" ms-on-click="selectClick($event,'type',$index)">{{el}}</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="right" ms-visible="noData">
+                分析数据：{{dataTime.total_data}}>{{dataTime.accord_data}}<br/>
+                <span>当前分析结果基于{{dataTime.end_time}}的数据</span>
+            </div>
+        </div>
+        <div id="charts-wrap" class="chart-area">
+            <p class="nullPic">暂无数据！</p>
+        </div>
+    </div>
+    <div class="charts-foot">
+        <p class="tip-content">
+        </p>
+        <!-- <p class="text-content" ms-visible="reportCommit">{{reportCommit}}</p> -->
+    </div>
+    <div class="modal fade" id="showKey" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">岗位特征画像</h4>
+                </div>
+                <div class="modal-body" style="position:relative;text-align:center;min-height:400px;">
+                    <div class="label-item" ms-repeat="labels">
+                        <h3>{{el.name}}</h3>
+                        <p>{{el.string}}</p>
+                    </div>
+                    <div class="yuan" ms-attr-title="label_name">{{label_name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

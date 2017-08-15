@@ -1,0 +1,58 @@
+.homePage {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.homePage>.welcome {
+    height: 100px;
+    width: 100%;
+    margin: 30px auto 20px auto;
+    background-color: #fff;
+    clear: both;
+}
+
+.welcome>.user-pic {
+    float: left;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.welcome>.welcome-text {
+    float: left;
+    padding: 28px;
+}
+
+.font-blod {
+    font-weight: bold;
+}
+
+.dynamic {
+    max-width: 1440px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 22px 28px;
+}
+
+.dynamic-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.dynamic li:last-child {
+    border: none;
+}
+
+.dynamic .dynamic-content {
+    display: inline-block;
+    padding: 10px;
+}
+
+.small-font {
+    font-size: 10px;
+    color: #999;
+    padding-left: 8px;
+}
+
+.dynamic-list img {
+    padding-bottom: 15px;
+}

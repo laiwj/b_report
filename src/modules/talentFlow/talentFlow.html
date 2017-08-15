@@ -1,0 +1,66 @@
+<div class="chartsContainer" ms-important="talentFlow">
+    <div class="chartsTitle">
+        <div class="btn-group">
+            <a class="dropdown-origin dropdown-toggle " data-toggle="dropdown" ms-disabled="config.industry.length==0" aria-haspopup="true" aria-expanded="false">
+                     {{formData.industry}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ms-repeat="config.industry"><a href="#" ms-on-click="selectClick($event,'industry',$index)">{{el}}</a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <a class="dropdown-origin dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{formData.direction}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ms-repeat="config.direction"><a href="#" ms-on-click="selectClick($event,'direction',$index)">{{el}}</a></li>
+            </ul>
+        </div>
+        <span>的</span>
+        <div class="btn-group">
+            <a class="dropdown-origin dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{formData.cf}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ms-repeat="config.cf"><a href="#" ms-on-click="selectClick($event,'cf',$index)">{{el}}</a></li>
+            </ul>
+        </div>
+
+        <span>分布</span>
+        <div class="collection">
+            <a ms-on-click="reportCollect" title="收藏"><img src="../images/collect.png" alt="收藏" />收藏</a>
+            <!--<a ms-on-click="download" title="下载"><img src="../images/download.png" alt="下载" />下载</a>-->
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <div class="reportCycle">
+            <span class="btn-label">报告周期：</span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{formData.type}} <span class="caret"></span>
+            </button>
+                <ul class="dropdown-menu">
+                    <li ms-repeat="config.type"><a href="#" ms-on-click="selectClick($event,'type',$index)">{{el}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="charts_wrap">
+            <p class="nullPic">暂无数据！</p>
+        </div>
+        <div class="topTurn">
+            <div class="button-wrap">
+                <button class="top-button top-button-left " type="button" ms-on-click="topTurn(5)">top5</button>
+                <button class="top-button top-button-right active" type="button" ms-on-click="topTurn(10)">top10</button>
+            </div>
+            <p class="analysis-text" ms-visible="noData">
+                分析数据：{{dataTime.total_data}}>{{dataTime.accord_data}}<br/>
+                <span>当前分析结果基于{{dataTime.end_time}}的数据</span>
+            </p>
+        </div>
+    </div>
+    <div class="charts-foot">
+        <p class="tip-content">
+        </p>
+        <!-- <p class="text-content" ms-visible="reportCommit">{{reportCommit}}</p> -->
+    </div>
+</div>

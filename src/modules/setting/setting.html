@@ -1,0 +1,162 @@
+<div class="chartsContainer" ms-important="setting">
+    <p class="setting-title">账号设置</p>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs " role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">基础设置</a> </li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">收藏管理</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">报告下载</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="default-row">
+                <label>默认行业设置：</label>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{defaultData.industry}}<span class="caret"></span>
+                        </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" ms-on-click="selectItem($event,1)">互联网全行业</a></li>
+                        <li><a href="#" ms-on-click="selectItem($event,1)">互联网金融</a></li>
+                        <li><a href="#" ms-on-click="selectItem($event,1)">游戏</a></li>
+                        <li><a href="#" ms-on-click="selectItem($event,1)">电商</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="row-edit" ms-on-click="modifyIndustry($event)">更改</a>
+            </div>
+            <div class="default-row">
+                <label>默认子行业设置：</label>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{defaultData.sub_industry}}<span class="caret"></span>
+                        </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" ms-on-click="selectItem($event,2)">金融运营</a></li>
+                        <li><a href="#" ms-on-click="selectItem($event,2)">清算</a></li>
+                        <li><a href="#" ms-on-click="selectItem($event,2)">金融运营作业</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="row-edit" ms-on-click="modifySubIndustry($event)">更改</a>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <div class="operate-area">
+                <button class="btn line" ms-on-click="checkDownload" ms-disabled="collectionList.length==0">下载</button>
+                <button class="btn line" ms-on-click="checkDelete" ms-disabled="noChecked">删除</button>
+                <button class="btn line">邮件至...</button>
+                <button class="btn line" ms-on-click="checkShare">分享</button>
+            </div>
+            <p ms-visible="collectionList.length===0">暂无数据！</p>
+            <table id="collectTable" ms-visible="collectionList.length>0" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th style="width:5%;"><input type="checkbox" id="all" checked ms-on-click="allSelect"></th>
+                        <th style="width:15%;">文档编号</th>
+                        <th style="width:70%;">文档名称</th>
+                        <th style="width:10%;">收藏时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ms-repeat="collectionList" class="collection-item">
+                        <td><input type="checkbox" ms-on-click="childSelect" checked ms-attr-data-id="el.data_id" ms-attr-id="el._id" /></td>
+                        <td>{{el.short_id}}</td>
+                        <td style="text-decoration:underline;">{{el.report_name}}</td>
+                        <td>{{el.collect_time}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation" style="float:right;" ms-visible="count.length>1">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous" ms-on-click="preAndBack($event,'pre')">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li ms-repeat="count" ms-attr-index="el" ms-class-active="el==current" ms-on-click="turnPage(el,$event)"><a href="#">{{el}}</a></li>
+                    <li>
+                        <a href="#" aria-label="Next" ms-on-click="preAndBack($event,'back')">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+            <p ms-visible="downloadList.length===0">暂无数据！</p>
+            <table id="downloadTable" ms-visible="downloadList.length>0" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th style="width:5%;"><input type="checkbox" id="down-all" checked ms-on-click="allSelect"></th>
+                        <th style="width:15%;">文档编号</th>
+                        <th style="width:40%;">文档名称</th>
+                        <th style="width:30%;">文档格式/大小</th>
+                        <th style="width:10%;">下载时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ms-repeat="downloadList" class="collection-item">
+                        <td><input type="checkbox" ms-on-click="childSelect" checked ms-attr-data-id="el._id" /></td>
+                        <td>{{el.short_id}}</td>
+                        <td style="text-decoration:underline;">{{el.report_name}}</td>
+                        <td>{{el.download_time}}</td>
+                        <td>{{el.download_time}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                    <img src="../images/error.png" alt="警告"> 确认删除？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-warning" ms-on-click="deleteCollectionItem">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="downloadItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel2">提示</h4>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                    <h4 style="margin:10px;text-align:left;">请选择下载格式</h4>
+                    <span class="down-item"><input type="radio" value="pdf" name="format">pdf</span>
+                    <span class="down-item"><input type="radio" value="zip" name="format">zip</span>
+                    <span class="down-item"><input type="radio" value="excel" name="format">excel</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-warning" ms-on-click="downloadItem">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="erweima" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:440px;height:303px;text-align:center;">
+                <div class="modal-header" style="border:0;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../images/success.png" alt="" id="shareImg">
+                    <p style="font-size:18px;padding-top:10px;padding-bottom:15px;">扫描二维码分享报告!</p>
+                    <div>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" style="width:100px;">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

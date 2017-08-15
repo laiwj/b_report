@@ -1,0 +1,135 @@
+.login_container,
+.register_container {
+    height: 100%;
+    background: url("../../img/zhuce.jpg") repeat-y center;
+}
+
+.login_content,
+.register_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 384px;
+    height: 377px;
+    margin-left: -192px;
+    margin-top: -189px;
+}
+
+.login_content-title,
+.register_content-title {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+
+.content-box {
+    width: 384px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.login_content .content-box {
+    height: 311px;
+}
+
+.register_content .content-box {
+    height: 430px;
+}
+
+.content-form>.content-form-logo {
+    padding-top: 30px;
+    margin-bottom: 17px;
+    text-align: center;
+}
+
+.form-row {
+    position: relative;
+    width: 300px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    margin: 13px auto 0 auto;
+    border: 1px solid #d5d5d5;
+}
+
+.content-form>.error {
+    border: 1px solid red;
+}
+
+.content-form>.focus {
+    border: 1px solid #177ee5;
+}
+
+.form-row>.form-row-addon {
+    float: left;
+    width: 40px;
+    height: 20px;
+    border-right: 1px solid #d5d5d5;
+    margin-top: 10px;
+}
+
+.username {
+    background: url(../../img/icon.png) -5px -31px no-repeat;
+}
+
+.mobile {
+    background: url(../../img/icon.png) -32px -31px no-repeat;
+}
+
+.password {
+    background: url("../../img/icon.png") -62px -33px no-repeat;
+}
+
+.form-row>.text-area {
+    border: none;
+    width: 70%;
+    height: 65%;
+    text-indent: 10px;
+}
+
+.form-row>label {
+    position: absolute;
+    left: 0;
+    top: -30px;
+    font-size: 12px;
+    color: red;
+}
+
+.forget-password {
+    width: 300px;
+    margin: 9px auto;
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+}
+
+.forget-password>.forget-password-href {
+    color: #999;
+    text-decoration: underline;
+}
+
+.login-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    color: #fff;
+    background-color: #177ee5;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.login-button>a {
+    color: #fff;
+}
+
+.login-button:active {
+    background-color: #ccc;
+    color: #000;
+}
+
+.yellow {
+    color: #dc9c0d;
+    background-color: #fefad0;
+}

@@ -1,0 +1,70 @@
+.chartsContainer>.nav-tabs {
+    border: none;
+    background-color: #ededee;
+}
+
+.setting-title {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #e3e3e3;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.nav-tabs>.active {
+    background-color: #fff;
+    border-top: 2px solid #2b76d1;
+}
+
+.chartsContainer>.nav-tabs>li>a {
+    margin: 0;
+    width: 115px;
+    height: 50px;
+    line-height: 2;
+    text-align: center;
+}
+
+.tab-content {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.nav-tabs>li>a {
+    border-radius: 0;
+}
+
+.default-row {
+    margin: 0 12px;
+    padding-top: 20px;
+}
+
+.row-edit {
+    padding-left: 10px;
+    color: #2b76d1;
+    text-decoration: underline;
+}
+
+.tab-pane>p {
+    text-align: center;
+}
+
+.collection-item {
+    height: 50px;
+    line-height: 50px;
+}
+
+.operate-area {
+    text-align: right;
+}
+
+.line {
+    width: 90px;
+    height: 33px;
+    margin: 10px 5px;
+    color: #2b76d1;
+    background-color: #fff;
+    border: 1px solid #2b76d1;
+    border-radius: 5px;
+}

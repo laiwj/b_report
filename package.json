@@ -1,0 +1,37 @@
+{
+    "name": "talentreportproject",
+    "version": "0.0.1",
+    "description": "spa",
+    "main": "main.js",
+    "scripts": {
+        "dev": "webpack --progress --profile --colors",
+        "watch": "webpack-dev-server --hot --inline --progress --colors",
+        "start": "node server.js",
+        "build": "webpack"
+    },
+    "keywords": [
+        "avalon",
+        "webpack",
+        "spa"
+    ],
+    "author": "oncej",
+    "dependencies": {
+        "bootstrap": "3.3.7",
+        "jquery": "1.11.1"
+    },
+    "devDependencies": {
+        "css-loader": "^0.23.0",
+        "es3ify-loader": "^0.2.0",
+        "es3ify-webpack-plugin": "^0.0.1",
+        "extract-text-webpack-plugin": "^0.9.1",
+        "file-loader": "^0.8.5",
+        "html-loader": "^0.4.3",
+        "html-webpack-plugin": "^1.7.0",
+        "json-loader": "0.5.4",
+        "style-loader": "^0.13.0",
+        "text-loader": "0.0.1",
+        "url-loader": "^0.5.7",
+        "webpack": "^1.12.9",
+        "webpack-dev-server": "^1.14.0"
+    }
+}
